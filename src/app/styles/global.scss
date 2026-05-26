@@ -46,6 +46,16 @@
   --radius: 0.5rem;
 }
 
+
+p {
+  font-size: 18px;
+  line-height: 1.6;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+}
+
 .dark {
   --bg: #111111;
   --text: #F0EDE6;

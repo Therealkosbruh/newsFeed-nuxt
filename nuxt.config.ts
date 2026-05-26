@@ -29,7 +29,10 @@ export default defineNuxtConfig({
       { code: 'ru', language: 'ru-RU', files: ['ru/common.json', 'ru/home.json'] }
     ],
     defaultLocale: 'en',
-    langDir: 'locales'
+    langDir: 'locales',
+    compilation: {
+      strictMessage: false
+    }
   },
   imports: {
     dirs: ['src/entities/*/model', 'src/features/*/model']
