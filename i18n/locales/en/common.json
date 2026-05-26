@@ -1,0 +1,9 @@
+{
+  "nav": {
+    "feed": "Feed",
+    "bookmarks": "Bookmarks"
+  },
+  "footer": {
+    "made": "Made by"
+  }
+}
