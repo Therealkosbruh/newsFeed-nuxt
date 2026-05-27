@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useIntersectionObserver } from "@vueuse/core";
-
 const { t } = useI18n();
 const storiesStore = useStoriesStore();
 const filtersStore = useFiltersStore();
@@ -13,16 +11,9 @@ const { pending, error } = useAsyncData("stories", () =>
   storiesStore.fetchIds(filtersStore.activeType),
 );
 
-const sentinel = useTemplateRef<HTMLElement>("sentinel");
-
-useIntersectionObserver(sentinel, ([entry]) => {
-  if (
-    entry?.isIntersecting &&
-    storiesStore.canLoadMore &&
-    !storiesStore.isLoading
-  ) {
+useInfiniteScroll(() => {
+  if (storiesStore.canLoadMore && !storiesStore.isLoading)
     storiesStore.loadMore();
-  }
 });
 </script>
 

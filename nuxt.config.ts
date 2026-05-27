@@ -29,12 +29,12 @@ export default defineNuxtConfig({
       {
         code: "en",
         language: "en-US",
-        files: ["en/common.json", "en/home.json"],
+        files: ["en/common.json", "en/home.json", "en/story.json"],
       },
       {
         code: "ru",
         language: "ru-RU",
-        files: ["ru/common.json", "ru/home.json"],
+        files: ["ru/common.json", "ru/home.json", "ru/story.json"],
       },
     ],
     defaultLocale: "en",
@@ -53,6 +53,7 @@ export default defineNuxtConfig({
   components: [
     { path: "~/src/shared/ui", pathPrefix: false },
     { path: "~/src/entities/story/ui", pathPrefix: false },
+    { path: "~/src/entities/comment/ui", pathPrefix: false },
     { path: "~/src/features/filters/ui", pathPrefix: false },
     { path: "~/src/widgets", pathPrefix: false },
   ],

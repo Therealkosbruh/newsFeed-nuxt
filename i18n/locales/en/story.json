@@ -1,0 +1,14 @@
+{
+  "story": {
+    "back": "Back",
+    "readOriginal": "Read original",
+    "bookmarkAdd": "Add to bookmarks",
+    "comments": "Comments",
+    "noComments": "No comments yet",
+    "showReplies": "Show {count} replies",
+    "deleted": "[deleted]",
+    "error": "Failed to load story",
+    "noContent": "Sorry, not all stories have content here",
+    "noContentHint": "Head to the original article to read the full text"
+  }
+}
