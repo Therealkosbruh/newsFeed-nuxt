@@ -7,6 +7,10 @@
     "title": "What the internet {highlight} about today.",
     "titleHighlight": "is arguing",
     "description": "A quieter window into Hacker News - 324 stories from the last 24 hours, ranked by upvotes and grouped by signal. No infinite scroll, no algorithm. Save anything for later with one tap.",
-    "empty": "No stories yet"
+    "empty": "No stories yet",
+    "emptyListSearchMessage": {
+      "title": "Query is too vague",
+      "description": "Try a different search term"
+    }
   }
 }

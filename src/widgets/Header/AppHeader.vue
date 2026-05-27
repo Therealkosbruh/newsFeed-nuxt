@@ -1,11 +1,11 @@
 <script setup lang="ts">
-const { t, locale, setLocale } = useI18n()
-const colorMode = useColorMode()
+const { t, locale, setLocale } = useI18n();
+const colorMode = useColorMode();
 
-const isDark = computed(() => colorMode.value === 'dark')
+const isDark = computed(() => colorMode.value === "dark");
 
 function toggleTheme() {
-  colorMode.preference = isDark.value ? 'light' : 'dark'
+  colorMode.preference = isDark.value ? "light" : "dark";
 }
 </script>
 
@@ -15,8 +15,10 @@ function toggleTheme() {
       <NuxtLink to="/" class="headerLogo">HN</NuxtLink>
 
       <nav class="headerNav">
-        <NuxtLink to="/" class="headerLink">{{ t('nav.feed') }}</NuxtLink>
-        <NuxtLink to="/bookmarks" class="headerLink">{{ t('nav.bookmarks') }}</NuxtLink>
+        <NuxtLink to="/" class="headerLink">{{ t("nav.feed") }}</NuxtLink>
+        <NuxtLink to="/bookmarks" class="headerLink">{{
+          t("nav.bookmarks")
+        }}</NuxtLink>
       </nav>
 
       <div class="headerActions">
@@ -96,7 +98,9 @@ function toggleTheme() {
   color: var(--text-muted);
   cursor: pointer;
   font-family: inherit;
-  transition: color 0.15s, border-color 0.15s;
+  transition:
+    color 0.15s,
+    border-color 0.15s;
 
   &:hover {
     color: var(--text);

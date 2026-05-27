@@ -1,31 +1,35 @@
 @font-face {
-  font-family: 'Neue Haas Grotesk';
-  src: url('/fonts/NeueHaasGroteskDisplayPro35ExtraLight.woff2') format('woff2'),
-       url('/fonts/NeueHaasGroteskDisplayPro35ExtraLight.woff') format('woff');
+  font-family: "Neue Haas Grotesk";
+  src:
+    url("/fonts/NeueHaasGroteskDisplayPro35ExtraLight.woff2") format("woff2"),
+    url("/fonts/NeueHaasGroteskDisplayPro35ExtraLight.woff") format("woff");
   font-weight: 200;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Neue Haas Grotesk';
-  src: url('/fonts/NeueHaasGroteskDisplayPro55Roman.woff2') format('woff2'),
-       url('/fonts/NeueHaasGroteskDisplayPro55Roman.woff') format('woff');
+  font-family: "Neue Haas Grotesk";
+  src:
+    url("/fonts/NeueHaasGroteskDisplayPro55Roman.woff2") format("woff2"),
+    url("/fonts/NeueHaasGroteskDisplayPro55Roman.woff") format("woff");
   font-weight: 400;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Neue Haas Grotesk';
-  src: url('/fonts/NeueHaasGroteskDisplayPro65Medium.woff2') format('woff2'),
-       url('/fonts/NeueHaasGroteskDisplayPro65Medium.woff') format('woff');
+  font-family: "Neue Haas Grotesk";
+  src:
+    url("/fonts/NeueHaasGroteskDisplayPro65Medium.woff2") format("woff2"),
+    url("/fonts/NeueHaasGroteskDisplayPro65Medium.woff") format("woff");
   font-weight: 500;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Neue Haas Grotesk';
-  src: url('/fonts/NeueHaasGroteskDisplayPro75Bold.woff2') format('woff2'),
-       url('/fonts/NeueHaasGroteskDisplayPro75Bold.woff') format('woff');
+  font-family: "Neue Haas Grotesk";
+  src:
+    url("/fonts/NeueHaasGroteskDisplayPro75Bold.woff2") format("woff2"),
+    url("/fonts/NeueHaasGroteskDisplayPro75Bold.woff") format("woff");
   font-weight: 700;
   font-display: swap;
 }
@@ -34,18 +38,17 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Neue Haas Grotesk', sans-serif;
+  font-family: "Neue Haas Grotesk", sans-serif;
 }
 
 :root {
-  --bg: #F5F0E8;
-  --text: #1A1A1A;
-  --text-muted: #6B6B6B;
-  --accent: #C9A84C;
-  --border: #E0D9CC;
+  --bg: #f5f0e8;
+  --text: #1a1a1a;
+  --text-muted: #6b6b6b;
+  --accent: #c9a84c;
+  --border: #e0d9cc;
   --radius: 0.5rem;
 }
-
 
 p {
   font-size: 18px;
@@ -58,8 +61,8 @@ p {
 
 .dark {
   --bg: #111111;
-  --text: #F0EDE6;
+  --text: #f0ede6;
   --text-muted: #888888;
-  --accent: #C9A84C;
-  --border: #2A2A2A;
+  --accent: #c9a84c;
+  --border: #2a2a2a;
 }

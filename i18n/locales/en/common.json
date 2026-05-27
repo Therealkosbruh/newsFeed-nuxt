@@ -5,5 +5,16 @@
   },
   "footer": {
     "made": "Made by"
+  },
+  "filters": {
+    "top": "Top",
+    "new": "New",
+    "best": "Best"
+  },
+  "search": {
+    "placeholder": "Search stories..."
+  },
+  "errors": {
+    "loadFailed": "Failed to load stories"
   }
 }

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-const { t } = useI18n()
+const { t } = useI18n();
 </script>
 
 <template>
   <footer class="footer">
-    <span>{{ t('footer.made') }}</span>
+    <span>{{ t("footer.made") }}</span>
     <NuxtLink
       to="https://github.com/Therealkosbruh"
       target="_blank"

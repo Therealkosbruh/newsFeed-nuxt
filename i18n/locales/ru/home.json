@@ -2,6 +2,11 @@
   "home": {
     "title": "О чём {highlight} интернет сегодня",
     "titleHighlight": "спорит",
-    "empty": "Новостей пока нет"
+    "description": "Тихое окно в Hacker News — 324 истории за последние 24 часа, отсортированные по голосам.",
+    "empty": "Новостей пока нет",
+    "emptyListSearchMessage": {
+      "title": "Запрос не точен",
+      "description": "Попробуйте другой запрос"
+    }
   }
 }

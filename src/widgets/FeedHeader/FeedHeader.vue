@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { t } = useI18n()
+const { t } = useI18n();
 </script>
 
 <template>
@@ -7,11 +7,13 @@ const { t } = useI18n()
     <h1 class="feedHeaderTitle">
       <i18n-t keypath="home.title">
         <template #highlight>
-          <span class="feedHeaderHighlight">{{ t('home.titleHighlight') }}</span>
+          <span class="feedHeaderHighlight">{{
+            t("home.titleHighlight")
+          }}</span>
         </template>
       </i18n-t>
     </h1>
-    <p class="feedHeaderSubtitle">{{ t('home.description') }}</p>
+    <p class="feedHeaderSubtitle">{{ t("home.description") }}</p>
   </section>
 </template>
 

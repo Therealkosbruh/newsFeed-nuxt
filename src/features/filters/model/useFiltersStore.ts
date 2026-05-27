@@ -1,25 +1,27 @@
-import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
-import type { StoryType } from '../../../shared/types/story'
+import { defineStore } from "pinia";
+import { ref, computed } from "vue";
+import type { StoryType } from "../../../shared/types/story";
 
-export const useFiltersStore = defineStore('filters', () => {
-  const activeType = ref<StoryType>('top')
-  const searchQuery = ref<string>('')
+export const useFiltersStore = defineStore("filters", () => {
+  const activeType = ref<StoryType>("top");
+  const searchQuery = ref<string>("");
 
-  const hasSearch = computed<boolean>(() => searchQuery.value.trim().length > 0)
-  const isActive = (type: StoryType): boolean => activeType.value === type
+  const hasSearch = computed<boolean>(
+    () => searchQuery.value.trim().length > 0,
+  );
+  const isActive = (type: StoryType): boolean => activeType.value === type;
 
   function setType(type: StoryType): void {
-    activeType.value = type
+    activeType.value = type;
   }
 
   function setSearch(query: string): void {
-    searchQuery.value = query
+    searchQuery.value = query;
   }
 
   function reset(): void {
-    activeType.value = 'top'
-    searchQuery.value = ''
+    activeType.value = "top";
+    searchQuery.value = "";
   }
 
   return {
@@ -29,6 +31,6 @@ export const useFiltersStore = defineStore('filters', () => {
     isActive,
     setType,
     setSearch,
-    reset
-  }
-})
+    reset,
+  };
+});
