@@ -2,7 +2,11 @@ import Aura from '@primeuix/themes/aura'
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
-  devtools: { enabled: true },
+  devtools: { enabled: process.env.NODE_ENV !== 'production' },
+
+  typescript: {
+    typeCheck: false,
+  },
   modules: [
     '@primevue/nuxt-module',
     '@nuxtjs/color-mode',
@@ -61,6 +65,9 @@ export default defineNuxtConfig({
   },
 
   vite: {
+    optimizeDeps: {
+      include: ['vue', 'vue-router', 'pinia', '@vueuse/core'],
+    },
     build: {
       rollupOptions: {
         output: {
