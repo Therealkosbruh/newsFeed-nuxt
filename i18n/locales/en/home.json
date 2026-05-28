@@ -1,8 +1,8 @@
 {
   "home": {
     "meta": {
-      "title": "Meta title",
-      "description": "Meta description"
+      "title": "HN Reader - What the internet is talking about today",
+      "description": "A quiet window into Hacker News. Top stories ranked by upvotes, searchable and filterable. Save anything for later."
     },
     "title": "What the internet {highlight} about today.",
     "titleHighlight": "is arguing",

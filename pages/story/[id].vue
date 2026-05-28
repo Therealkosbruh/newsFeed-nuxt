@@ -1,15 +1,24 @@
 <script setup lang="ts">
-import { getStoryById } from "../../src/entities/story/api/storyApi";
+import { getStoryById } from '../../src/entities/story/api/storyApi'
 
-const { t } = useI18n();
-const route = useRoute();
-const id = Number(route.params.id);
+const { t } = useI18n()
+const route = useRoute()
+const id = Number(route.params.id)
 
-const {
-  data: story,
-  error,
-  pending,
-} = await useAsyncData(`story-${id}`, () => getStoryById(id));
+const { data: story, error, pending } = await useAsyncData(`story-${id}`, () => getStoryById(id))
+
+const metaDescription = computed(() =>
+  story.value
+    ? `${story.value.score} pts by ${story.value.by} · ${story.value.descendants ?? 0} comments`
+    : undefined,
+)
+
+useSeoMeta({
+  title: () => (story.value ? `${story.value.title} - HN Reader` : 'HN Reader'),
+  description: metaDescription,
+  ogTitle: () => story.value?.title ?? 'HN Reader',
+  ogDescription: metaDescription,
+})
 </script>
 
 <template>
@@ -21,13 +30,13 @@ const {
     </div>
 
     <Message v-else-if="error || !story" severity="error" :closable="false">
-      {{ t("story.error") }}
+      {{ t('story.error') }}
     </Message>
 
     <template v-else>
       <NuxtLink to="/" class="storyPageBack">
         <NuxtImg src="/icons/arrowBack.svg" class="storyPageBackIcon" alt="" />
-        {{ t("story.back") }}
+        {{ t('story.back') }}
       </NuxtLink>
 
       <StoryDetailHead :title="story.title" />
@@ -40,12 +49,7 @@ const {
 
           <template #fallback>
             <div class="storyPageParsing">
-              <Skeleton
-                v-for="i in 6"
-                :key="i"
-                height="18px"
-                border-radius="4px"
-              />
+              <Skeleton v-for="i in 6" :key="i" height="18px" border-radius="4px" />
             </div>
           </template>
         </Suspense>

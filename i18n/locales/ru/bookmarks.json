@@ -1,5 +1,9 @@
 {
   "bookmarks": {
+    "meta": {
+      "title": "Закладки - HN Reader",
+      "description": "Сохранённые истории Hacker News в одном месте."
+    },
     "title": "Ваши {highlight} статьи.",
     "titleHighlight": "сохранённые",
     "description": "Всё, что вы добавили в закладки. Нажмите иконку ещё раз, чтобы удалить.",

@@ -1,6 +1,13 @@
 <script setup lang="ts">
 const { t } = useI18n()
 const bookmarksStore = useBookmarksStore()
+
+useSeoMeta({
+  title: () => t('bookmarks.meta.title'),
+  description: () => t('bookmarks.meta.description'),
+  ogTitle: () => t('bookmarks.meta.title'),
+  ogDescription: () => t('bookmarks.meta.description'),
+})
 </script>
 
 <template>

@@ -1,5 +1,9 @@
 {
   "bookmarks": {
+    "meta": {
+      "title": "Bookmarks - HN Reader",
+      "description": "Your saved Hacker News stories in one place."
+    },
     "title": "Your {highlight} stories.",
     "titleHighlight": "saved",
     "description": "Everything you've bookmarked in one place. Tap the icon again to remove.",

@@ -4,9 +4,6 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: process.env.NODE_ENV !== 'production' },
 
-  typescript: {
-    typeCheck: false,
-  },
   modules: [
     '@primevue/nuxt-module',
     '@nuxtjs/color-mode',
