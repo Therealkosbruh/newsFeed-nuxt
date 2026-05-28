@@ -7,7 +7,18 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "prepare": "husky",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write ."
+  },
+  "lint-staged": {
+    "*.{ts,vue}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{scss,json,md}": "prettier --write"
   },
   "dependencies": {
     "@lucide/vue": "^1.16.0",
@@ -27,7 +38,12 @@
     "vue-router": "^5.0.7"
   },
   "devDependencies": {
+    "@nuxt/eslint": "^1.15.2",
     "@nuxtjs/color-mode": "^4.0.0",
+    "eslint": "^9.39.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.8.3",
     "sass": "^1.100.0"
   }
 }
