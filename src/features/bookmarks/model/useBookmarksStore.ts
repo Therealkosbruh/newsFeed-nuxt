@@ -1,4 +1,4 @@
-import { defineStore } from 'pinia'
+import { defineStore, skipHydrate } from 'pinia'
 import { shallowRef, computed, markRaw } from 'vue'
 import type { Story } from '../../../shared/types/story'
 
@@ -30,10 +30,8 @@ export const useBookmarksStore = defineStore('bookmarks', () => {
     }
   }
 
-  if (import.meta.client) hydrate()
-
   return {
-    bookmarks,
+    bookmarks: skipHydrate(bookmarks),
     count,
     hasBookmarks,
     isBookmarked,
