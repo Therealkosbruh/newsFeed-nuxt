@@ -1,0 +1,9 @@
+{
+  "bookmarks": {
+    "title": "Your {highlight} stories.",
+    "titleHighlight": "saved",
+    "description": "Everything you've bookmarked in one place. Tap the icon again to remove.",
+    "empty": "No bookmarks yet",
+    "emptyDescription": "Tap the bookmark icon on any story to save it here"
+  }
+}

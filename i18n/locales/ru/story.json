@@ -3,6 +3,7 @@
     "back": "Назад",
     "readOriginal": "Читать оригинал",
     "bookmarkAdd": "В закладки",
+    "bookmarkRemove": "Убрать из закладок",
     "comments": "Комментарии",
     "noComments": "Комментариев пока нет",
     "showReplies": "Показать {count} ответов",

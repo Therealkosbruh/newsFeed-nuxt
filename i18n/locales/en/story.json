@@ -3,6 +3,7 @@
     "back": "Back",
     "readOriginal": "Read original",
     "bookmarkAdd": "Add to bookmarks",
+    "bookmarkRemove": "Remove from bookmarks",
     "comments": "Comments",
     "noComments": "No comments yet",
     "showReplies": "Show {count} replies",

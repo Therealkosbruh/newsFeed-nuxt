@@ -29,12 +29,12 @@ export default defineNuxtConfig({
       {
         code: "en",
         language: "en-US",
-        files: ["en/common.json", "en/home.json", "en/story.json"],
+        files: ["en/common.json", "en/home.json", "en/story.json", "en/bookmarks.json"],
       },
       {
         code: "ru",
         language: "ru-RU",
-        files: ["ru/common.json", "ru/home.json", "ru/story.json"],
+        files: ["ru/common.json", "ru/home.json", "ru/story.json", "ru/bookmarks.json"],
       },
     ],
     defaultLocale: "en",

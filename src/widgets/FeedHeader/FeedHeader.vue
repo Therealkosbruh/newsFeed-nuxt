@@ -1,19 +1,27 @@
 <script setup lang="ts">
-const { t } = useI18n();
+const props = withDefaults(defineProps<{
+  titleKey?: string
+  highlightKey?: string
+  descriptionKey?: string
+}>(), {
+  titleKey: 'home.title',
+  highlightKey: 'home.titleHighlight',
+  descriptionKey: 'home.description',
+})
+
+const { t } = useI18n()
 </script>
 
 <template>
   <section class="section">
     <h1 class="feedHeaderTitle">
-      <i18n-t keypath="home.title">
+      <i18n-t :keypath="props.titleKey">
         <template #highlight>
-          <span class="feedHeaderHighlight">{{
-            t("home.titleHighlight")
-          }}</span>
+          <span class="feedHeaderHighlight">{{ t(props.highlightKey) }}</span>
         </template>
       </i18n-t>
     </h1>
-    <p class="feedHeaderSubtitle">{{ t("home.description") }}</p>
+    <p class="feedHeaderSubtitle">{{ t(props.descriptionKey) }}</p>
   </section>
 </template>
 

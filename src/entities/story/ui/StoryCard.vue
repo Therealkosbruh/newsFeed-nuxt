@@ -9,52 +9,78 @@ const props = defineProps<{
 
 const num = computed(() => String(props.index + 1).padStart(2, "0"));
 const isTouched = ref<boolean>(false);
+
+const bookmarksStore = useBookmarksStore();
+const isBookmarked = computed(() => bookmarksStore.isBookmarked(props.story.id));
+const isBookmarkTouched = ref(false);
 </script>
 
 <template>
-  <NuxtLink
-    :to="`/story/${story.id}`"
+  <div
     class="storyCard"
     :class="{ storyCardTouched: isTouched }"
     @touchstart="isTouched = true"
     @touchend="isTouched = false"
     @touchcancel="isTouched = false"
   >
-    <span class="storyCardIndex">{{ num }}</span>
-    <div class="storyCardContent">
-      <span class="storyCardTitle">{{ story.title }}</span>
-      <p class="storyCardMeta">
-        {{ story.by }}
-        · {{ timeAgo(story.time) }} · {{ story.score }} pts
-        <span v-if="story.descendants != null" class="storyCardComments">
-          · {{ story.descendants }}
-          <NuxtImg
-            src="/icons/comment.svg"
-            alt="comments"
-            class="storyCardCommentIcon"
-          />
-        </span>
-      </p>
-    </div>
-  </NuxtLink>
+    <NuxtLink :to="`/story/${story.id}`" class="storyCardLink">
+      <span class="storyCardIndex">{{ num }}</span>
+      <div class="storyCardContent">
+        <span class="storyCardTitle">{{ story.title }}</span>
+        <p class="storyCardMeta">
+          {{ story.by }}
+          · {{ timeAgo(story.time) }} · {{ story.score }} pts
+          <span v-if="story.descendants != null" class="storyCardComments">
+            · {{ story.descendants }}
+            <NuxtImg
+              src="/icons/comment.svg"
+              alt="comments"
+              class="storyCardCommentIcon"
+            />
+          </span>
+        </p>
+      </div>
+    </NuxtLink>
+
+    <button
+      class="storyCardBookmark"
+      :class="{ storyCardBookmarkActive: isBookmarked, storyCardBookmarkTouched: isBookmarkTouched }"
+      @click="isBookmarked ? bookmarksStore.removeBookmark(story.id) : bookmarksStore.addBookmark(story)"
+      @touchstart="isBookmarkTouched = true"
+      @touchend="isBookmarkTouched = false"
+      @touchcancel="isBookmarkTouched = false"
+    >
+      <span class="storyCardBookmarkIcon" />
+    </button>
+  </div>
 </template>
 
 <style scoped lang="scss">
 .storyCard {
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
+  align-items: center;
   padding: 14px 0;
   border-bottom: 1px solid var(--border);
-  text-decoration: none;
-  cursor: pointer;
 
   &:last-child {
     border-bottom: none;
   }
 
-  &:hover .storyCardTitle,
   &.storyCardTouched .storyCardTitle {
+    color: var(--accent);
+  }
+}
+
+.storyCardLink {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover .storyCardTitle {
     color: var(--accent);
   }
 }
@@ -73,6 +99,36 @@ const isTouched = ref<boolean>(false);
   display: flex;
   flex-direction: column;
   gap: 6px;
+}
+
+.storyCardBookmark {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  align-self: center;
+  transition: transform 0.15s;
+
+  &:hover, &.storyCardBookmarkTouched { transform: scale(1.25); }
+}
+
+.storyCardBookmarkIcon {
+  display: block;
+  width: 14px;
+  height: 14px;
+  background-color: var(--text-muted);
+  mask: url('/icons/bookmark.svg') center / contain no-repeat;
+  -webkit-mask: url('/icons/bookmark.svg') center / contain no-repeat;
+  transition: background-color 0.15s;
+}
+
+.storyCardBookmarkActive .storyCardBookmarkIcon {
+  background-color: var(--accent);
 }
 
 .storyCardTitle {

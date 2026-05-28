@@ -5,8 +5,11 @@ import { timeAgo } from "../../../shared/lib/time";
 const props = defineProps<{ story: Story }>();
 
 const { t } = useI18n();
+const bookmarksStore = useBookmarksStore();
 
 const avatarLetter = computed(() => props.story.by?.[0]?.toUpperCase() ?? "?");
+const isBookmarked = computed(() => bookmarksStore.isBookmarked(props.story.id));
+const isBookmarkTouched = ref(false);
 </script>
 
 <template>
@@ -37,13 +40,14 @@ const avatarLetter = computed(() => props.story.by?.[0]?.toUpperCase() ?? "?");
 
     <button
       class="storyDetailInfoBookmark"
-      :aria-label="t('story.bookmarkAdd')"
+      :class="{ storyDetailInfoBookmarkActive: isBookmarked, storyDetailInfoBookmarkTouched: isBookmarkTouched }"
+      :aria-label="t(isBookmarked ? 'story.bookmarkRemove' : 'story.bookmarkAdd')"
+      @click="isBookmarked ? bookmarksStore.removeBookmark(story.id) : bookmarksStore.addBookmark(story)"
+      @touchstart="isBookmarkTouched = true"
+      @touchend="isBookmarkTouched = false"
+      @touchcancel="isBookmarkTouched = false"
     >
-      <NuxtImg
-        src="/icons/bookmark.svg"
-        class="storyDetailInfoBookmarkIcon"
-        alt=""
-      />
+      <span class="storyDetailInfoBookmarkIcon" />
     </button>
   </div>
 </template>
@@ -113,17 +117,22 @@ const avatarLetter = computed(() => props.story.by?.[0]?.toUpperCase() ?? "?");
   background: transparent;
   border: none;
   cursor: pointer;
-  border-radius: var(--radius);
-  transition: background 0.15s;
+  transition: transform 0.15s;
 
-  &:hover {
-    background: var(--border);
-  }
+  &:hover, &.storyDetailInfoBookmarkTouched { transform: scale(1.25); }
 }
 
 .storyDetailInfoBookmarkIcon {
+  display: block;
   width: 16px;
   height: 16px;
-  filter: invert(75%) sepia(0%) saturate(0%) brightness(90%);
+  background-color: var(--text-muted);
+  mask: url('/icons/bookmark.svg') center / contain no-repeat;
+  -webkit-mask: url('/icons/bookmark.svg') center / contain no-repeat;
+  transition: background-color 0.15s;
+}
+
+.storyDetailInfoBookmarkActive .storyDetailInfoBookmarkIcon {
+  background-color: var(--accent);
 }
 </style>
