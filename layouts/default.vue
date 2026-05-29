@@ -3,6 +3,8 @@ import { useWindowScroll } from '@vueuse/core'
 
 const { y } = useWindowScroll()
 const visible = computed(() => y.value > 300)
+const { t, locale } = useI18n()
+useHead({ htmlAttrs: { lang: locale } })
 
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -22,7 +24,12 @@ onMounted(() => {
     <AppFooter />
 
     <Transition name="scrollTop">
-      <button v-if="visible" class="scrollTopBtn" @click="scrollToTop">
+      <button
+        v-if="visible"
+        class="scrollTopBtn"
+        :aria-label="t('nav.scrollTop')"
+        @click="scrollToTop"
+      >
         <NuxtImg src="/icons/arrowUp.svg" alt="" class="scrollTopIcon" />
       </button>
     </Transition>

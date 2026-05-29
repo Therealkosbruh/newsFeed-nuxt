@@ -1,18 +1,19 @@
 <script setup lang="ts">
-import type { Story } from "../../../shared/types/story";
-import { timeAgo } from "../../../shared/lib/time";
+import type { Story } from '../../../shared/types/story'
+import { timeAgo } from '../../../shared/lib/time'
 
 const props = defineProps<{
-  story: Story;
-  index: number;
-}>();
+  story: Story
+  index: number
+}>()
 
-const num = computed(() => String(props.index + 1).padStart(2, "0"));
-const isTouched = ref<boolean>(false);
+const { t } = useI18n()
+const num = computed(() => String(props.index + 1).padStart(2, '0'))
+const isTouched = ref<boolean>(false)
 
-const bookmarksStore = useBookmarksStore();
-const isBookmarked = computed(() => bookmarksStore.isBookmarked(props.story.id));
-const isBookmarkTouched = ref(false);
+const bookmarksStore = useBookmarksStore()
+const isBookmarked = computed(() => bookmarksStore.isBookmarked(props.story.id))
+const isBookmarkTouched = ref(false)
 </script>
 
 <template>
@@ -32,11 +33,7 @@ const isBookmarkTouched = ref(false);
           · {{ timeAgo(story.time) }} · {{ story.score }} pts
           <span v-if="story.descendants != null" class="storyCardComments">
             · {{ story.descendants }}
-            <NuxtImg
-              src="/icons/comment.svg"
-              alt="comments"
-              class="storyCardCommentIcon"
-            />
+            <NuxtImg src="/icons/comment.svg" alt="comments" class="storyCardCommentIcon" />
           </span>
         </p>
       </div>
@@ -44,8 +41,14 @@ const isBookmarkTouched = ref(false);
 
     <button
       class="storyCardBookmark"
-      :class="{ storyCardBookmarkActive: isBookmarked, storyCardBookmarkTouched: isBookmarkTouched }"
-      @click="isBookmarked ? bookmarksStore.removeBookmark(story.id) : bookmarksStore.addBookmark(story)"
+      :class="{
+        storyCardBookmarkActive: isBookmarked,
+        storyCardBookmarkTouched: isBookmarkTouched,
+      }"
+      :aria-label="t(isBookmarked ? 'story.bookmarkRemove' : 'story.bookmarkAdd')"
+      @click="
+        isBookmarked ? bookmarksStore.removeBookmark(story.id) : bookmarksStore.addBookmark(story)
+      "
       @touchstart="isBookmarkTouched = true"
       @touchend="isBookmarkTouched = false"
       @touchcancel="isBookmarkTouched = false"
@@ -114,7 +117,10 @@ const isBookmarkTouched = ref(false);
   align-self: center;
   transition: transform 0.15s;
 
-  &:hover, &.storyCardBookmarkTouched { transform: scale(1.25); }
+  &:hover,
+  &.storyCardBookmarkTouched {
+    transform: scale(1.25);
+  }
 }
 
 .storyCardBookmarkIcon {

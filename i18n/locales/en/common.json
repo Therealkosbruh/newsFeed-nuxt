@@ -1,7 +1,8 @@
 {
   "nav": {
     "feed": "Feed",
-    "bookmarks": "Bookmarks"
+    "bookmarks": "Bookmarks",
+    "scrollTop": "Scroll to top"
   },
   "footer": {
     "made": "Made by"

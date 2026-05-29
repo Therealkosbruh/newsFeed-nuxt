@@ -1,7 +1,8 @@
 {
   "nav": {
     "feed": "Лента",
-    "bookmarks": "Закладки"
+    "bookmarks": "Закладки",
+    "scrollTop": "Наверх"
   },
   "footer": {
     "made": "Сделал"

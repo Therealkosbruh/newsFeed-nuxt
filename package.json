@@ -43,6 +43,7 @@
     "vue-router": "^5.0.7"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^8.0.0",
     "@nuxt/eslint": "^1.15.2",
     "@nuxt/test-utils": "^4.0.3",
     "@nuxtjs/color-mode": "^4.0.0",

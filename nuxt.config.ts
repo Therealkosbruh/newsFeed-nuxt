@@ -57,8 +57,51 @@ export default defineNuxtConfig({
   ],
   css: ['~/src/app/styles/global.scss'],
 
+  app: {
+    head: {
+      link: [
+        {
+          rel: 'preload',
+          as: 'font',
+          type: 'font/woff2',
+          href: '/fonts/NeueHaasGroteskDisplayPro75Bold.woff2',
+          crossorigin: 'anonymous',
+        },
+        {
+          rel: 'preload',
+          as: 'font',
+          type: 'font/woff2',
+          href: '/fonts/NeueHaasGroteskDisplayPro55Roman.woff2',
+          crossorigin: 'anonymous',
+        },
+      ],
+    },
+  },
+
+  routeRules: {
+    '/fonts/**': {
+      headers: { 'cache-control': 'public, max-age=31536000, immutable' },
+    },
+    '/icons/**': {
+      headers: { 'cache-control': 'public, max-age=86400' },
+    },
+  },
+
   nitro: {
     compressPublicAssets: true,
+  },
+
+  postcss: {
+    plugins: {
+      '@fullhuman/postcss-purgecss': {
+        content: ['./src/**/*.vue', './pages/**/*.vue', './layouts/**/*.vue'],
+        safelist: {
+          standard: [/^p-skeleton/, /^p-message/, /^p-icon/],
+          deep: [/^p-skeleton/, /^p-message/],
+        },
+        defaultExtractor: (content: string) => content.match(/[\w-/:]+(?<!:)/g) ?? [],
+      },
+    },
   },
 
   vite: {
@@ -70,7 +113,6 @@ export default defineNuxtConfig({
         output: {
           manualChunks: {
             'vue-vendor': ['vue', 'vue-router', 'pinia'],
-            'ui-vendor': ['primevue'],
           },
         },
       },

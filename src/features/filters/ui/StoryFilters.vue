@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import { markRaw } from "vue";
-import type { StoryType } from "../../../shared/types/story";
+import { markRaw } from 'vue'
+import type { StoryType } from '../../../shared/types/story'
 
-const { t } = useI18n();
-const filtersStore = useFiltersStore();
-const storiesStore = useStoriesStore();
+const { t } = useI18n()
+const filtersStore = useFiltersStore()
+const storiesStore = useStoriesStore()
 
-const FILTER_TYPES = markRaw<StoryType[]>(["top", "new", "best"]);
+const FILTER_TYPES = markRaw<StoryType[]>(['top', 'new', 'best'])
 
 async function select(type: StoryType) {
-  filtersStore.setType(type);
-  await storiesStore.fetchIds(type);
+  filtersStore.setType(type)
+  await storiesStore.fetchIds(type)
 }
 </script>
 
@@ -57,10 +57,10 @@ async function select(type: StoryType) {
 .storyFiltersBtnActive {
   background: var(--accent);
   border-color: var(--accent);
-  color: #fff;
+  color: #1a1a1a;
 
   &:hover {
-    color: #fff;
+    color: #1a1a1a;
     border-color: var(--accent);
   }
 }
