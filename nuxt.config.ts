@@ -74,6 +74,13 @@ export default defineNuxtConfig({
           href: '/fonts/NeueHaasGroteskDisplayPro55Roman.woff2',
           crossorigin: 'anonymous',
         },
+        {
+          rel: 'preload',
+          as: 'font',
+          type: 'font/woff2',
+          href: '/fonts/NeueHaasGroteskDisplayPro65Medium.woff2',
+          crossorigin: 'anonymous',
+        },
       ],
     },
   },
