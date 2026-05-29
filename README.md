@@ -102,8 +102,18 @@ Playwright автоматически поднимает `nuxt dev` если с�
 
 - **Tree-shaking PrimeVue** - убран из `manualChunks`, Rollup берёт только используемые компоненты. Unused JS: 166 kB -> 29 kB
 - **PurgeCSS** - удаляет неиспользуемые CSS классы при сборке
-- **Font preload** - Bold и Roman начертания загружаются с приоритетом через `<link rel="preload">`
+- **Font preload** - Bold, Roman и Medium начертания загружаются с приоритетом через `<link rel="preload">`
 - **Cache headers** - шрифты кэшируются на год (`immutable`), иконки на сутки
 - **Asset compression** - gzip и brotli для статики через Nitro
 - **Code splitting** - автоматический роут-левел сплиттинг + `manualChunks` для vue/pinia
 - **`vite.optimizeDeps`** - pre-bundling зависимостей для быстрого старта dev сервера
+
+### Результаты Lighthouse (production)
+
+**Desktop**
+
+![Desktop Lighthouse](docs/desctop-metrics.png)
+
+**Mobile**
+
+![Mobile Lighthouse](docs/mobile-metrics.png)
